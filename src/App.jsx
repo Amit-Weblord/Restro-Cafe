@@ -33,11 +33,10 @@ export default function App() {
 
   // Freeze scrolling during the preloader and while the menu overlay is open
   useEffect(() => {
+    document.documentElement.style.overflow = locked ? 'hidden' : '';
     if (lenis) {
       if (locked) lenis.stop();
       else lenis.start();
-    } else {
-      document.documentElement.style.overflow = locked ? 'hidden' : '';
     }
   }, [lenis, locked]);
 
